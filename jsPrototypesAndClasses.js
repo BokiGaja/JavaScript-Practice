@@ -6,8 +6,8 @@ class Character {
     if (new.target === Character) {
       throw new Error('Cannot create instance of abstract class')
     }
-    this.x = Math.round(Math.ceil() * 10);
-    this.y = Math.round(Math.ceil() * 10);
+    this.x = Math.ceil(Math.random() * 10 - 1);
+    this.y = Math.ceil(Math.random() * 10 - 1);
     Character.numberOfCharacters++;
   }
 
@@ -16,7 +16,7 @@ class Character {
   }
 
   setCoordinates(x, y) {
-    if (x > 10 || y > 10 || x < 0 || y < 0) {
+    if (x >= 10 || y >= 10 || x < 0 || y < 0) {
       throw new Error('Coordinates out of boundaries')
     }
     this.x = x;
@@ -58,13 +58,13 @@ Character2.showNumberOfCharacters = function () {
 }
 
 Character2.prototype = {
-  x: Math.round(Math.ceil() * 10),
-  y: Math.round(Math.ceil() * 10),
+  x: Math.ceil(Math.random() * 10 - 1),
+  y: Math.ceil(Math.random() * 10 - 1),
   showPosition: function () {
     console.log('X: ' + this.x + ' Y: ' + this.y);
   },
   setCoordinates: function (x, y) {
-    if (x > 10 || y > 10 || x < 0 || y < 0) {
+    if (x >= 10 || y >= 10 || x < 0 || y < 0) {
       throw new Error('Coordinates out of boundaries')
     }
     this.x = x;
