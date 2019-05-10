@@ -47,15 +47,16 @@ Character.showNumberOfCharacters();
 // Prototypes
 
 const Character2 = function () {
-  if (new.target === Character) {
+  if (new.target === Character2) {
     throw new Error('Cannot create instance of abstract class')
   }
-}
+  Character2.numberOfCharacters++
+};
 
 Character2.numberOfCharacters = 0;
 Character2.showNumberOfCharacters = function () {
   console.log(this.numberOfCharacters)
-}
+};
 
 Character2.prototype = {
   x: Math.ceil(Math.random() * 10 - 1),
@@ -70,16 +71,16 @@ Character2.prototype = {
     this.x = x;
     this.y = y;
   }
-}
+};
 
 const PlayerCharacter2 = function () {
-  Character2.numberOfCharacters++
-}
+  Character2.call()
+};
 PlayerCharacter2.prototype = Character2.prototype
 
 const NonPlayerCharacter2 = function () {
-  Character2.numberOfCharacters++
-}
+  Character2.call()
+};
 NonPlayerCharacter2.prototype = Character2.prototype;
 
 const char3 = new PlayerCharacter2();
